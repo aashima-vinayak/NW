@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aashima Vinayak — Senior Product Designer</title>
+<meta name="description" content="Senior Product Designer with 8+ years across VR, enterprise tools, kiosks, ticketing, and design systems. Cosm, NBC Olympics, Meta, Sky Sports.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #f5f3ef;
+  --surface:   #ffffff;
+  --card:      #ffffff;
+  --card-soft: #f0ede9;
+  --dark:      #10131a;
+  --dark2:     #181d28;
+  --ink:       #14161b;
+  --ink2:      #525a6e;
+  --ink3:      #96a0b3;
+  --line:      #e2dfd9;
+  --line2:     #ccc8c0;
+  --grid:      rgba(180,176,168,0.42);
+  --accent:    #1d4ed8;
+  --acc-light: #eff4ff;
+  --acc-bd:    #bfcfef;
+  --flag-bg:   #f3f7ff;
+  --flag-bd:   #c4d6f4;
+  --green:     #16a34a;
+  --green-bg:  #f0fdf4;
+  --green-bd:  #bbf7d0;
+  --ph-bg:     #f0ede8;
+  --ph-bd:     #dedad3;
+  --ph-txt:    #a8a098;
+  --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 99;
+  height: 60px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 64px;
+  background: rgba(245,243,239,0.95); backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-name { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--ink2); text-decoration: none; transition: color .18s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-end { display: flex; align-items: center; gap: 14px; }
+.nav-avail {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; color: var(--green);
+  background: var(--green-bg); border: 1px solid var(--green-bd);
+  padding: 5px 12px; border-radius: 20px;
+}
+.avail-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 2.4s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
+.nav-resume { font-size: 13px; font-weight: 600; color: var(--ink); background: var(--surface); border: 1px solid var(--line2); padding: 7px 18px; border-radius: 6px; text-decoration: none; transition: border-color .18s; }
+.nav-resume:hover { border-color: var(--ink3); }
+
+/* ── HERO ── */
+.hero { display: grid; grid-template-columns: 1fr 440px; min-height: 88vh; border-bottom: 1px solid var(--line); }
+
+.hero-l {
+  padding: 88px 64px 80px; border-right: 1px solid var(--line);
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.hero-l::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(var(--grid) 1px,transparent 1px), linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.55) 22%,rgba(0,0,0,.55) 70%,transparent 100%),
+              linear-gradient(to right,transparent 0%,rgba(0,0,0,.7) 18%,rgba(0,0,0,.7) 82%,transparent 100%);
+  mask-composite: intersect; -webkit-mask-composite: destination-in;
+}
+.hero-role { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 22px; position: relative; }
+.hero-h1 { font-size: clamp(34px,3.8vw,50px); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 8px; position: relative; }
+.hero-h1 span { color: var(--ink2); font-weight: 500; }
+.hero-sub { font-size: 16px; color: var(--ink2); max-width: 500px; line-height: 1.8; margin-bottom: 40px; position: relative; }
+.hero-sub strong { color: var(--ink); font-weight: 600; }
+.hero-ctas { display: flex; gap: 10px; margin-bottom: 48px; position: relative; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: #fff; padding: 13px 24px; border-radius: 7px; font-size: 14px; font-weight: 600; text-decoration: none; transition: opacity .18s; }
+.btn-primary:hover { opacity: .83; }
+.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); color: var(--ink); padding: 13px 22px; border-radius: 7px; font-size: 14px; font-weight: 600; border: 1px solid var(--line2); text-decoration: none; transition: border-color .18s; }
+.btn-secondary:hover { border-color: var(--ink3); }
+.brand-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; position: relative; }
+.brand-lbl { font-size: 11px; font-weight: 700; color: var(--ink3); letter-spacing: 0.1em; text-transform: uppercase; }
+.brand-chips { display: flex; gap: 7px; flex-wrap: wrap; }
+.brand-chip { font-size: 12px; font-weight: 600; color: var(--ink2); background: var(--surface); border: 1px solid var(--line); padding: 5px 12px; border-radius: 5px; }
+
+/* HERO RIGHT */
+.hero-r {
+  background: var(--surface); display: flex; flex-direction: column;
+  justify-content: center; padding: 40px 36px;
+  position: relative; overflow: hidden;
+}
+.hero-r::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(var(--grid) 1px,transparent 1px), linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size: 40px 40px; opacity: 0.6;
+  mask-image: linear-gradient(135deg,rgba(0,0,0,.3) 0%,rgba(0,0,0,.75) 40%,rgba(0,0,0,.75) 60%,rgba(0,0,0,.2) 100%);
+}
+.smap-wrap { position: relative; z-index: 1; }
+.smap-lbl { font-size: 11px; font-weight: 700; color: var(--ink3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+
+/* Ecosystem map SVG placeholder */
+.ecosystem-map {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; padding: 16px; margin-bottom: 14px;
+  position: relative;
+}
+.eco-map-label { font-size: 9px; font-weight: 700; color: var(--ph-txt); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+
+.smap-list { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 14px; }
+.srow { display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); transition: background .16s; }
+.srow:last-child { border-bottom: none; }
+.srow:hover { background: var(--bg); }
+.srow.flag { background: var(--flag-bg); }
+.srow.flag:hover { background: #eaf1ff; }
+.srow-n { font-size: 11px; font-weight: 700; color: var(--ink3); }
+.srow.flag .srow-n { color: var(--accent); }
+.srow-name { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 1px; line-height: 1.2; }
+.srow-sub { font-size: 10px; color: var(--ink3); }
+.srow.flag .srow-sub { color: #5878be; }
+.srow-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; white-space: nowrap; background: var(--card-soft); color: var(--ink3); border: 1px solid var(--line); }
+.srow.flag .srow-badge { background: var(--acc-light); color: var(--accent); border-color: var(--acc-bd); }
+.smap-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sstat { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; text-align: center; }
+.sstat-n { font-size: 24px; font-weight: 700; color: var(--ink); line-height: 1; letter-spacing: -0.025em; }
+.sstat-l { font-size: 11px; color: var(--ink3); font-weight: 500; margin-top: 4px; }
+
+/* ── PROOF ── */
+.proof-row { display: grid; grid-template-columns: repeat(4,1fr); background: var(--dark); border-bottom: 1px solid #222840; }
+.proof-cell { padding: 36px 48px; border-right: 1px solid #222840; }
+.proof-cell:last-child { border-right: none; }
+.proof-n { font-size: 44px; font-weight: 700; color: #fff; line-height: 1; letter-spacing: -0.035em; margin-bottom: 10px; }
+.proof-l { font-size: 13px; color: #7080a0; line-height: 1.6; }
+.proof-l strong { color: #b0c0d8; font-weight: 600; }
+
+/* ── SECTION ── */
+.sec { padding: 80px 64px; border-bottom: 1px solid var(--line); }
+.sec-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 40px; }
+.sec-lbl { font-size: 11px; font-weight: 700; color: var(--ink3); letter-spacing: 0.12em; text-transform: uppercase; }
+.sec-a { font-size: 14px; font-weight: 500; color: var(--ink2); text-decoration: none; transition: color .18s; }
+.sec-a:hover { color: var(--accent); }
+
+/* ── WORK CARDS ── */
+.work-stack { display: flex; flex-direction: column; gap: 14px; }
+
+.wcard {
+  display: grid; grid-template-columns: 180px 1fr;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 10px; overflow: hidden;
+  transition: border-color .2s, box-shadow .2s;
+}
+.wcard:hover { border-color: var(--line2); box-shadow: 0 2px 20px rgba(0,0,0,.06); }
+.wcard.flag { border-color: var(--flag-bd); background: var(--flag-bg); }
+.wcard.flag:hover { border-color: #a8c4ee; box-shadow: 0 2px 24px rgba(29,78,216,.08); }
+
+.wmeta { padding: 28px 20px; border-right: 1px solid var(--line); background: var(--card-soft); display: flex; flex-direction: column; justify-content: space-between; }
+.wcard.flag .wmeta { background: var(--flag-bg); border-color: var(--flag-bd); }
+.wcard-idx { font-size: 11px; font-weight: 700; color: var(--ink3); margin-bottom: 10px; letter-spacing: 0.04em; }
+.wcard.flag .wcard-idx { color: var(--accent); }
+.wcard-client { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.wcard-yr { font-size: 12px; color: var(--ink3); margin-bottom: 16px; }
+.wcard-tags { display: flex; flex-direction: column; gap: 4px; }
+.wtag { font-size: 11px; font-weight: 600; color: var(--ink3); background: var(--surface); border: 1px solid var(--line); padding: 3px 9px; border-radius: 4px; width: fit-content; }
+.wtag.hi { color: var(--accent); background: var(--acc-light); border-color: var(--acc-bd); }
+.wtag.fhi { color: #1d4ed8; background: var(--acc-light); border-color: var(--acc-bd); }
+
+.wbody { display: flex; flex-direction: column; }
+
+/* preview visual area */
+.w-preview {
+  border-bottom: 1px solid var(--line);
+  background: var(--ph-bg);
+  position: relative; overflow: hidden;
+  min-height: 140px;
+  display: flex; align-items: center; justify-content: center;
+}
+.wcard.flag .w-preview { border-color: var(--flag-bd); min-height: 180px; }
+.wcard.flag .w-preview { background: #eef3fc; }
+.preview-label {
+  position: absolute; bottom: 8px; left: 12px;
+  font-size: 9px; font-weight: 700; color: var(--ph-txt);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: rgba(255,255,255,0.8); padding: 2px 6px; border-radius: 3px;
+}
+.w-content { padding: 24px 28px; flex-grow: 1; display: flex; flex-direction: column; }
+.wcard-title { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 7px; line-height: 1.2; }
+.wcard.flag .wcard-title { font-size: 19px; }
+.wcard-one { font-size: 14px; color: var(--ink2); line-height: 1.7; margin-bottom: 20px; flex-grow: 1; }
+.wcard-trio { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); padding-top: 16px; margin-bottom: 18px; }
+.wcard.flag .wcard-trio { border-color: var(--flag-bd); }
+.tcol { padding-right: 16px; margin-right: 16px; border-right: 1px solid var(--line); }
+.wcard.flag .tcol { border-color: var(--flag-bd); }
+.tcol:last-child { padding-right: 0; margin-right: 0; border-right: none; }
+.tcol-lbl { font-size: 9px; font-weight: 700; color: var(--ink3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+.wcard.flag .tcol-lbl { color: #5878be; }
+.tcol-val { font-size: 12px; color: var(--ink2); line-height: 1.55; }
+.tcol-val strong { color: var(--ink); font-weight: 600; }
+.wcta { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; color: var(--ink2); text-decoration: none; transition: color .18s; width: fit-content; }
+.wcta:hover { color: var(--accent); }
+.wcard.flag .wcta { color: var(--accent); }
+
+/* ── HOW I WORK ── */
+.how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.how-cell { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 36px 30px; transition: border-color .2s; }
+.how-cell:hover { border-color: var(--line2); }
+.how-pill { font-size: 11px; font-weight: 700; color: var(--ink3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+.how-h { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.02em; line-height: 1.3; }
+.how-b { font-size: 14px; color: var(--ink2); line-height: 1.8; }
+
+/* ── TRUST ── */
+.trust-wrap { background: var(--dark2); padding: 80px 64px; border-bottom: 1px solid #222840; }
+.trust-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.t-eyebrow { font-size: 11px; font-weight: 700; color: #445060; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; }
+.t-quote { font-size: 19px; font-weight: 400; color: #dde4f0; line-height: 1.7; margin-bottom: 20px; letter-spacing: -0.01em; }
+.t-quote::before { content: '\201C'; } .t-quote::after { content: '\201D'; }
+.t-attr { font-size: 13px; color: #5878a0; font-weight: 500; }
+.trust-lbl { font-size: 11px; font-weight: 700; color: #445060; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; }
+.trust-list { display: flex; flex-direction: column; }
+.trow { display: flex; align-items: baseline; gap: 12px; padding: 13px 0; border-bottom: 1px solid #1e2d40; }
+.trow:first-child { border-top: 1px solid #1e2d40; }
+.tdash { font-size: 12px; color: #445060; flex-shrink: 0; }
+.ttext { font-size: 15px; color: #7888a8; line-height: 1.55; }
+.ttext strong { color: #b8c8e0; font-weight: 600; }
+
+/* ── ABOUT ── */
+.about-grid { display: grid; grid-template-columns: 1fr 360px; gap: 72px; align-items: start; }
+.about-pull { font-size: 24px; font-weight: 700; color: var(--ink); line-height: 1.3; letter-spacing: -0.025em; margin-bottom: 20px; }
+.about-p { font-size: 15px; color: var(--ink2); line-height: 1.85; margin-bottom: 14px; }
+.about-a { color: var(--ink2); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line2); transition: color .18s; }
+.about-a:hover { color: var(--accent); }
+.tl { border-top: 1px solid var(--line); }
+.tl-row { display: grid; grid-template-columns: 96px 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.tl-yr { font-size: 12px; font-weight: 600; color: var(--ink3); padding-top: 2px; }
+.tl-role { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.tl-co { font-size: 13px; color: var(--ink2); }
+.tl-note { font-size: 12px; color: var(--ink3); margin-top: 4px; }
+
+/* ── THINKING ── */
+.thinking-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.thinking-cell { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 24px; transition: border-color .2s; }
+.thinking-cell:hover { border-color: var(--line2); }
+.thinking-type { font-size: 10px; font-weight: 700; color: var(--ink3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.thinking-ttl { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.45; margin-bottom: 16px; }
+.thinking-cta { font-size: 13px; font-weight: 600; color: var(--ink2); text-decoration: none; transition: color .18s; }
+.thinking-cta:hover { color: var(--accent); }
+
+/* ── CTA ── */
+.cta-wrap { padding: 96px 64px; background: var(--surface); }
+.cta-over { font-size: 11px; font-weight: 700; color: var(--ink3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+.cta-h { font-size: 40px; font-weight: 700; color: var(--ink); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px; }
+.cta-sub { font-size: 16px; color: var(--ink2); max-width: 440px; line-height: 1.8; margin-bottom: 38px; }
+.cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+footer { padding: 22px 64px; background: var(--surface); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+.ft { font-size: 13px; color: var(--ink3); font-weight: 500; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1040px) {
+  nav { padding: 0 28px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-l { padding: 60px 28px 52px; border-right: none; }
+  .hero-r { padding: 36px 28px; border-top: 1px solid var(--line); }
+  .proof-row { grid-template-columns: 1fr 1fr; }
+  .proof-cell { padding: 28px 24px; }
+  .sec { padding: 52px 28px; }
+  .wcard { grid-template-columns: 1fr; }
+  .wmeta { border-right: none; border-bottom: 1px solid var(--line); flex-direction: row; flex-wrap: wrap; gap: 10px; padding: 16px 20px; }
+  .wcard-tags { flex-direction: row; }
+  .wcard-trio { grid-template-columns: 1fr; }
+  .tcol { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 12px; }
+  .tcol:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .how-grid, .thinking-grid { grid-template-columns: 1fr; gap: 12px; }
+  .trust-wrap { padding: 52px 28px; }
+  .trust-inner { grid-template-columns: 1fr; gap: 44px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .cta-wrap { padding: 64px 28px; }
+  footer { padding: 18px 28px; flex-direction: column; gap: 6px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Aashima Vinayak</span>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#approach">Approach</a>
+    <a href="#about">About</a>
+    <a href="#thinking">Thinking</a>
+  </div>
+  <div class="nav-end">
+    <span class="nav-avail"><span class="avail-dot"></span>Open to senior roles</span>
+    <a href="#" class="nav-resume">Resume ↓</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-role">Senior Product Designer · Lead-level ownership · 8+ years</div>
+    <h1 class="hero-h1">Designing complex products<br><span>that actually make sense.</span></h1>
+    <p class="hero-sub">
+      8+ years designing high-stakes product experiences for
+      <strong>Cosm, NBC Olympics, Meta, and Sky Sports</strong> —
+      from live 8K VR broadcasts to venue operations tools,
+      ticketing systems, and design systems.
+    </p>
+    <div class="hero-ctas">
+      <a href="#work" class="btn-primary">View selected work</a>
+      <a href="#" class="btn-secondary">Download resume ↓</a>
+    </div>
+    <div class="brand-row">
+      <span class="brand-lbl">With</span>
+      <div class="brand-chips">
+        <span class="brand-chip">NBC Olympics</span>
+        <span class="brand-chip">Meta</span>
+        <span class="brand-chip">Sky Sports</span>
+        <span class="brand-chip">Cosm</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-r">
+    <div class="smap-wrap">
+      <div class="smap-lbl">Product surfaces I design across</div>
+
+      <!-- Ecosystem map placeholder -->
+      <div class="ecosystem-map">
+        <div class="eco-map-label">Cosm product ecosystem — replace with real diagram</div>
+        <svg width="100%" height="110" viewBox="0 0 340 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- grid lines -->
+          <line x1="0" y1="28" x2="340" y2="28" stroke="#dedad3" stroke-width="0.5"/>
+          <line x1="0" y1="56" x2="340" y2="56" stroke="#dedad3" stroke-width="0.5"/>
+          <line x1="0" y1="84" x2="340" y2="84" stroke="#dedad3" stroke-width="0.5"/>
+          <line x1="68" y1="0" x2="68" y2="110" stroke="#dedad3" stroke-width="0.5"/>
+          <line x1="136" y1="0" x2="136" y2="110" stroke="#dedad3" stroke-width="0.5"/>
+          <line x1="204" y1="0" x2="204" y2="110" stroke="#dedad3" stroke-width="0.5"/>
+          <line x1="272" y1="0" x2="272" y2="110" stroke="#dedad3" stroke-width="0.5"/>
+          <!-- connector lines -->
+          <line x1="46" y1="55" x2="100" y2="55" stroke="#c4d6f4" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="168" y1="55" x2="220" y2="55" stroke="#c4d6f4" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="100" y1="30" x2="100" y2="80" stroke="#dedad3" stroke-width="0.8" stroke-dasharray="2 4"/>
+          <line x1="220" y1="30" x2="220" y2="80" stroke="#dedad3" stroke-width="0.8" stroke-dasharray="2 4"/>
+          <!-- nodes -->
+          <rect x="4" y="38" width="42" height="34" rx="5" fill="#eff4ff" stroke="#bfcfef" stroke-width="1"/>
+          <text x="25" y="53" font-family="system-ui" font-size="6" font-weight="700" fill="#1d4ed8" text-anchor="middle">VR</text>
+          <text x="25" y="63" font-family="system-ui" font-size="5" fill="#7888b8" text-anchor="middle">Broadcast</text>
+
+          <rect x="100" y="20" width="68" height="28" rx="4" fill="#f5f3ef" stroke="#dedad3" stroke-width="1"/>
+          <text x="134" y="33" font-family="system-ui" font-size="6" font-weight="600" fill="#525a6e" text-anchor="middle">Ticketing</text>
+          <text x="134" y="42" font-family="system-ui" font-size="5" fill="#96a0b3" text-anchor="middle">Consumer UX</text>
+
+          <rect x="100" y="62" width="68" height="28" rx="4" fill="#f5f3ef" stroke="#dedad3" stroke-width="1"/>
+          <text x="134" y="75" font-family="system-ui" font-size="6" font-weight="600" fill="#525a6e" text-anchor="middle">Kiosk UX</text>
+          <text x="134" y="84" font-family="system-ui" font-size="5" fill="#96a0b3" text-anchor="middle">Hardware</text>
+
+          <rect x="220" y="20" width="68" height="28" rx="4" fill="#f5f3ef" stroke="#dedad3" stroke-width="1"/>
+          <text x="254" y="33" font-family="system-ui" font-size="6" font-weight="600" fill="#525a6e" text-anchor="middle">Guest Services</text>
+          <text x="254" y="42" font-family="system-ui" font-size="5" fill="#96a0b3" text-anchor="middle">Enterprise</text>
+
+          <rect x="220" y="62" width="68" height="28" rx="4" fill="#f5f3ef" stroke="#dedad3" stroke-width="1"/>
+          <text x="254" y="75" font-family="system-ui" font-size="6" font-weight="600" fill="#525a6e" text-anchor="middle">Design System</text>
+          <text x="254" y="84" font-family="system-ui" font-size="5" fill="#96a0b3" text-anchor="middle">Multi-surface</text>
+        </svg>
+      </div>
+
+      <div class="smap-list">
+        <div class="srow flag">
+          <div class="srow-n">01</div>
+          <div><div class="srow-name">Live Broadcast / VR</div><div class="srow-sub">NBC Olympics · Meta Quest · Tokyo + Beijing</div></div>
+          <div class="srow-badge">Flagship</div>
+        </div>
+        <div class="srow">
+          <div class="srow-n">02</div>
+          <div><div class="srow-name">Ticketing / Consumer UX</div><div class="srow-sub">Booking the Unknown · Dome venue · 0→1</div></div>
+          <div class="srow-badge">0→1</div>
+        </div>
+        <div class="srow">
+          <div class="srow-n">03</div>
+          <div><div class="srow-name">Kiosk / Hardware UX</div><div class="srow-sub">Physical touchscreen · High-traffic ops</div></div>
+          <div class="srow-badge">Hardware</div>
+        </div>
+        <div class="srow">
+          <div class="srow-n">04</div>
+          <div><div class="srow-name">Guest Services / Enterprise Ops</div><div class="srow-sub">Internal tools · Real-time · Multi-role</div></div>
+          <div class="srow-badge">Enterprise</div>
+        </div>
+      </div>
+      <div class="smap-stats">
+        <div class="sstat"><div class="sstat-n">150+</div><div class="sstat-l">Hrs live 8K VR</div></div>
+        <div class="sstat"><div class="sstat-n">2×</div><div class="sstat-l">Olympics shipped</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof-row">
+  <div class="proof-cell"><div class="proof-n">8+</div><div class="proof-l"><strong>Years</strong> leading product design across VR, enterprise, and emerging platforms</div></div>
+  <div class="proof-cell"><div class="proof-n">150+</div><div class="proof-l"><strong>Hours</strong> of live 8K VR broadcast experience designed and shipped</div></div>
+  <div class="proof-cell"><div class="proof-n">2×</div><div class="proof-l"><strong>Olympic Games</strong> shipped on schedule — Tokyo 2020 and Beijing 2022</div></div>
+  <div class="proof-cell"><div class="proof-n">4×</div><div class="proof-l"><strong>Product surfaces</strong> — VR headset, web, physical kiosk, enterprise dashboard</div></div>
+</div>
+
+<!-- WORK -->
+<section class="sec" id="work">
+  <div class="sec-top">
+    <span class="sec-lbl">Selected work</span>
+    <a href="#" class="sec-a">All case studies →</a>
+  </div>
+  <div class="work-stack">
+
+    <!-- 01 NBC — FLAGSHIP -->
+    <div class="wcard flag">
+      <div class="wmeta">
+        <div>
+          <div class="wcard-idx">01 / 04</div>
+          <div class="wcard-client">NBC Olympics × Meta × Xfinity</div>
+          <div class="wcard-yr">2021 – 2022</div>
+        </div>
+        <div class="wcard-tags">
+          <span class="wtag fhi">VR / Spatial</span>
+          <span class="wtag fhi">Live broadcast</span>
+          <span class="wtag fhi">Consumer</span>
+          <span class="wtag fhi">Flagship</span>
+        </div>
+      </div>
+      <div class="wbody">
+        <!-- NBC preview placeholder -->
+        <div class="w-preview">
+          <svg width="100%" height="100%" viewBox="0 0 540 180" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="540" height="180" fill="#eef3fc"/>
+            <!-- grid -->
+            <line x1="0" y1="45" x2="540" y2="45" stroke="#c4d6f4" stroke-width="0.5"/>
+            <line x1="0" y1="90" x2="540" y2="90" stroke="#c4d6f4" stroke-width="0.5"/>
+            <line x1="0" y1="135" x2="540" y2="135" stroke="#c4d6f4" stroke-width="0.5"/>
+            <line x1="108" y1="0" x2="108" y2="180" stroke="#c4d6f4" stroke-width="0.5"/>
+            <line x1="216" y1="0" x2="216" y2="180" stroke="#c4d6f4" stroke-width="0.5"/>
+            <line x1="324" y1="0" x2="324" y2="180" stroke="#c4d6f4" stroke-width="0.5"/>
+            <line x1="432" y1="0" x2="432" y2="180" stroke="#c4d6f4" stroke-width="0.5"/>
+            <!-- VR nav bar at top -->
+            <rect x="16" y="14" width="508" height="32" rx="5" fill="white" stroke="#c4d6f4" stroke-width="1"/>
+            <rect x="24" y="20" width="60" height="20" rx="3" fill="#1d4ed8" opacity="0.12"/>
+            <text x="54" y="33" font-family="system-ui" font-size="8" font-weight="700" fill="#1d4ed8" text-anchor="middle">LIVE NOW</text>
+            <text x="130" y="33" font-family="system-ui" font-size="8" fill="#7888b8">Highlights</text>
+            <text x="200" y="33" font-family="system-ui" font-size="8" fill="#7888b8">Schedule</text>
+            <text x="270" y="33" font-family="system-ui" font-size="8" fill="#7888b8">Watch Party</text>
+            <text x="350" y="33" font-family="system-ui" font-size="8" fill="#7888b8">Sports</text>
+            <!-- event cards -->
+            <rect x="16" y="56" width="120" height="60" rx="5" fill="white" stroke="#c4d6f4" stroke-width="1"/>
+            <rect x="16" y="56" width="120" height="20" rx="5" fill="#1d4ed8" opacity="0.08"/>
+            <text x="76" y="69" font-family="system-ui" font-size="7" font-weight="700" fill="#1d4ed8" text-anchor="middle">● LIVE</text>
+            <text x="76" y="86" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">Athletics 100m</text>
+            <text x="76" y="98" font-family="system-ui" font-size="7" fill="#96a0b3" text-anchor="middle">Olympic Stadium</text>
+            <text x="76" y="109" font-family="system-ui" font-size="7" fill="#1d4ed8" text-anchor="middle">Watch in VR →</text>
+
+            <rect x="148" y="56" width="120" height="60" rx="5" fill="white" stroke="#dde6f4" stroke-width="1"/>
+            <text x="208" y="72" font-family="system-ui" font-size="7" fill="#96a0b3" text-anchor="middle">17:30 JST</text>
+            <text x="208" y="86" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">Swimming 200m</text>
+            <text x="208" y="98" font-family="system-ui" font-size="7" fill="#96a0b3" text-anchor="middle">Tokyo Aquatics</text>
+            <text x="208" y="109" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">Set reminder</text>
+
+            <rect x="280" y="56" width="120" height="60" rx="5" fill="white" stroke="#dde6f4" stroke-width="1"/>
+            <text x="340" y="72" font-family="system-ui" font-size="7" fill="#96a0b3" text-anchor="middle">19:00 JST</text>
+            <text x="340" y="86" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">Gymnastics Final</text>
+            <text x="340" y="98" font-family="system-ui" font-size="7" fill="#96a0b3" text-anchor="middle">Ariake Arena</text>
+            <text x="340" y="109" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">Set reminder</text>
+
+            <!-- watch party panel -->
+            <rect x="412" y="56" width="112" height="60" rx="5" fill="#eff4ff" stroke="#bfcfef" stroke-width="1"/>
+            <text x="468" y="72" font-family="system-ui" font-size="7" font-weight="700" fill="#1d4ed8" text-anchor="middle">Watch Party</text>
+            <text x="468" y="84" font-family="system-ui" font-size="6" fill="#7888b8" text-anchor="middle">Invite up to 3 friends</text>
+            <rect x="430" y="90" width="76" height="16" rx="3" fill="#1d4ed8" opacity="0.12"/>
+            <text x="468" y="102" font-family="system-ui" font-size="7" font-weight="600" fill="#1d4ed8" text-anchor="middle">Start a party →</text>
+
+            <!-- camera switch row -->
+            <rect x="16" y="130" width="508" height="36" rx="5" fill="white" stroke="#c4d6f4" stroke-width="1"/>
+            <text x="30" y="145" font-family="system-ui" font-size="7" font-weight="700" fill="#525a6e">Camera angle</text>
+            <rect x="90" y="136" width="52" height="22" rx="3" fill="#1d4ed8"/>
+            <text x="116" y="151" font-family="system-ui" font-size="7" font-weight="700" fill="white" text-anchor="middle">Athlete POV</text>
+            <rect x="148" y="136" width="52" height="22" rx="3" fill="white" stroke="#c4d6f4" stroke-width="1"/>
+            <text x="174" y="151" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">Finish line</text>
+            <rect x="206" y="136" width="52" height="22" rx="3" fill="white" stroke="#c4d6f4" stroke-width="1"/>
+            <text x="232" y="151" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">Stadium 360°</text>
+            <rect x="264" y="136" width="52" height="22" rx="3" fill="white" stroke="#c4d6f4" stroke-width="1"/>
+            <text x="290" y="151" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">Broadcast</text>
+          </svg>
+          <div class="preview-label">Replace with: NBC Olympics VR interface · Meta Quest UX</div>
+        </div>
+        <div class="w-content">
+          <div class="wcard-title">NBC Olympics VR by Xfinity</div>
+          <div class="wcard-one">Designed the world's first live 8K VR Olympic broadcast experience across Tokyo 2020 and Beijing 2022 — end-to-end on Meta Quest, with no design precedent to reference.</div>
+          <div class="wcard-trio">
+            <div class="tcol"><div class="tcol-lbl">My role</div><div class="tcol-val"><strong>Lead designer, end to end</strong> — spatial nav, Watch Parties, 16 sports</div></div>
+            <div class="tcol"><div class="tcol-lbl">Complexity</div><div class="tcol-val">NBC × Meta × Xfinity · <strong>fixed Olympic date</strong> · zero VR broadcast precedent</div></div>
+            <div class="tcol"><div class="tcol-lbl">Outcome</div><div class="tcol-val"><strong>150+ hrs live VR · 8K world first · IBC 2022</strong> · shipped twice on schedule</div></div>
+          </div>
+          <a href="#" class="wcta">Read case study →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 BOOKING -->
+    <div class="wcard">
+      <div class="wmeta">
+        <div>
+          <div class="wcard-idx">02 / 04</div>
+          <div class="wcard-client">Cosm</div>
+          <div class="wcard-yr">2023 – 2024</div>
+        </div>
+        <div class="wcard-tags">
+          <span class="wtag hi">0 → 1</span>
+          <span class="wtag">Consumer</span>
+          <span class="wtag">Ticketing</span>
+        </div>
+      </div>
+      <div class="wbody">
+        <div class="w-preview">
+          <svg width="100%" height="100%" viewBox="0 0 540 130" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="540" height="130" fill="#f5f3ef"/>
+            <!-- step flow -->
+            <rect x="16" y="20" width="88" height="90" rx="6" fill="white" stroke="#e2dfd9" stroke-width="1"/>
+            <text x="60" y="40" font-family="system-ui" font-size="7" font-weight="700" fill="#96a0b3" text-anchor="middle">STEP 1</text>
+            <text x="60" y="54" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">Event</text>
+            <text x="60" y="65" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">Discovery</text>
+            <rect x="24" y="78" width="72" height="22" rx="3" fill="#f0ede9" stroke="#e2dfd9" stroke-width="0.8"/>
+            <text x="60" y="93" font-family="system-ui" font-size="6" fill="#525a6e" text-anchor="middle">Browse events</text>
+            <line x1="104" y1="65" x2="128" y2="65" stroke="#ccc8c0" stroke-width="1" stroke-dasharray="3 2"/>
+            <text x="116" y="60" font-family="system-ui" font-size="8" fill="#ccc8c0" text-anchor="middle">→</text>
+
+            <rect x="128" y="20" width="88" height="90" rx="6" fill="white" stroke="#e2dfd9" stroke-width="1"/>
+            <text x="172" y="40" font-family="system-ui" font-size="7" font-weight="700" fill="#96a0b3" text-anchor="middle">STEP 2</text>
+            <text x="172" y="54" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">Select</text>
+            <text x="172" y="65" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">Seat Zone</text>
+            <rect x="136" y="78" width="72" height="22" rx="3" fill="#f0ede9" stroke="#e2dfd9" stroke-width="0.8"/>
+            <text x="172" y="93" font-family="system-ui" font-size="6" fill="#525a6e" text-anchor="middle">Dome map view</text>
+            <line x1="216" y1="65" x2="240" y2="65" stroke="#ccc8c0" stroke-width="1" stroke-dasharray="3 2"/>
+            <text x="228" y="60" font-family="system-ui" font-size="8" fill="#ccc8c0" text-anchor="middle">→</text>
+
+            <rect x="240" y="20" width="88" height="90" rx="6" fill="white" stroke="#e2dfd9" stroke-width="1"/>
+            <text x="284" y="40" font-family="system-ui" font-size="7" font-weight="700" fill="#96a0b3" text-anchor="middle">STEP 3</text>
+            <text x="284" y="54" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">Ticket</text>
+            <text x="284" y="65" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">Selection</text>
+            <rect x="248" y="78" width="72" height="22" rx="3" fill="#f0ede9" stroke="#e2dfd9" stroke-width="0.8"/>
+            <text x="284" y="93" font-family="system-ui" font-size="6" fill="#525a6e" text-anchor="middle">Type + quantity</text>
+            <line x1="328" y1="65" x2="352" y2="65" stroke="#ccc8c0" stroke-width="1" stroke-dasharray="3 2"/>
+            <text x="340" y="60" font-family="system-ui" font-size="8" fill="#ccc8c0" text-anchor="middle">→</text>
+
+            <rect x="352" y="20" width="88" height="90" rx="6" fill="white" stroke="#e2dfd9" stroke-width="1"/>
+            <text x="396" y="40" font-family="system-ui" font-size="7" font-weight="700" fill="#96a0b3" text-anchor="middle">STEP 4</text>
+            <text x="396" y="54" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">Checkout</text>
+            <text x="396" y="65" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b" text-anchor="middle">&amp; Confirm</text>
+            <rect x="360" y="78" width="72" height="22" rx="3" fill="#14161b"/>
+            <text x="396" y="93" font-family="system-ui" font-size="6" font-weight="700" fill="white" text-anchor="middle">Buy Tickets →</text>
+
+            <!-- no playbook note -->
+            <rect x="452" y="20" width="76" height="90" rx="6" fill="#fff9f0" stroke="#f0d8b0" stroke-width="1" stroke-dasharray="3 2"/>
+            <text x="490" y="48" font-family="system-ui" font-size="7" font-weight="700" fill="#b07820" text-anchor="middle">No prior</text>
+            <text x="490" y="58" font-family="system-ui" font-size="7" font-weight="700" fill="#b07820" text-anchor="middle">reference</text>
+            <text x="490" y="72" font-family="system-ui" font-size="6" fill="#c09840" text-anchor="middle">360° venue</text>
+            <text x="490" y="82" font-family="system-ui" font-size="6" fill="#c09840" text-anchor="middle">first of its</text>
+            <text x="490" y="92" font-family="system-ui" font-size="6" fill="#c09840" text-anchor="middle">kind</text>
+          </svg>
+          <div class="preview-label">Replace with: booking flow / dome seat selection screen</div>
+        </div>
+        <div class="w-content">
+          <div class="wcard-title">Booking the Unknown</div>
+          <div class="wcard-one">End-to-end ticketing UX for a venue category with no existing design precedent — seat selection inside an 87-foot LED dome.</div>
+          <div class="wcard-trio">
+            <div class="tcol"><div class="tcol-lbl">My role</div><div class="tcol-val"><strong>Lead designer</strong> — invented the dome seating model</div></div>
+            <div class="tcol"><div class="tcol-lbl">Complexity</div><div class="tcol-val">No seat map conventions for 360° immersive venues</div></div>
+            <div class="tcol"><div class="tcol-lbl">Outcome</div><div class="tcol-val"><strong>Anchors Cosm's commercial revenue model</strong></div></div>
+          </div>
+          <a href="booking-the-unknown-publish-ready.html" class="wcta">Read case study →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 KIOSK -->
+    <div class="wcard">
+      <div class="wmeta">
+        <div>
+          <div class="wcard-idx">03 / 04</div>
+          <div class="wcard-client">Cosm</div>
+          <div class="wcard-yr">2022 – 2023</div>
+        </div>
+        <div class="wcard-tags">
+          <span class="wtag hi">Hardware UX</span>
+          <span class="wtag">Kiosk</span>
+          <span class="wtag">Ops</span>
+        </div>
+      </div>
+      <div class="wbody">
+        <div class="w-preview">
+          <svg width="100%" height="100%" viewBox="0 0 540 130" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="540" height="130" fill="#f5f3ef"/>
+            <!-- kiosk frame -->
+            <rect x="80" y="8" width="380" height="114" rx="8" fill="white" stroke="#e2dfd9" stroke-width="1.5"/>
+            <rect x="80" y="8" width="380" height="28" rx="8" fill="#f0ede9" stroke="#e2dfd9" stroke-width="1.5"/>
+            <rect x="80" y="28" width="380" height="8" fill="#f0ede9"/>
+            <text x="270" y="26" font-family="system-ui" font-size="9" font-weight="700" fill="#14161b" text-anchor="middle">COSM · SELECT YOUR EXPERIENCE</text>
+            <!-- event card row -->
+            <rect x="96" y="44" width="104" height="64" rx="5" fill="#eef3fc" stroke="#c4d6f4" stroke-width="1"/>
+            <text x="148" y="64" font-family="system-ui" font-size="7" font-weight="700" fill="#1d4ed8" text-anchor="middle">NFL Game Day</text>
+            <text x="148" y="76" font-family="system-ui" font-size="6" fill="#7888b8" text-anchor="middle">Today · 19:00</text>
+            <rect x="108" y="82" width="80" height="18" rx="3" fill="#1d4ed8"/>
+            <text x="148" y="95" font-family="system-ui" font-size="7" font-weight="700" fill="white" text-anchor="middle">Buy Tickets</text>
+
+            <rect x="212" y="44" width="104" height="64" rx="5" fill="white" stroke="#e2dfd9" stroke-width="1"/>
+            <text x="264" y="64" font-family="system-ui" font-size="7" font-weight="600" fill="#14161b" text-anchor="middle">Sky Sports Live</text>
+            <text x="264" y="76" font-family="system-ui" font-size="6" fill="#96a0b3" text-anchor="middle">Sat · 15:30</text>
+            <rect x="224" y="82" width="80" height="18" rx="3" fill="#f0ede9" stroke="#e2dfd9" stroke-width="1"/>
+            <text x="264" y="95" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">View Details</text>
+
+            <rect x="328" y="44" width="104" height="64" rx="5" fill="white" stroke="#e2dfd9" stroke-width="1"/>
+            <text x="380" y="64" font-family="system-ui" font-size="7" font-weight="600" fill="#14161b" text-anchor="middle">Private Event</text>
+            <text x="380" y="76" font-family="system-ui" font-size="6" fill="#96a0b3" text-anchor="middle">Sun · 20:00</text>
+            <rect x="340" y="82" width="80" height="18" rx="3" fill="#f0ede9" stroke="#e2dfd9" stroke-width="1"/>
+            <text x="380" y="95" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">View Details</text>
+
+            <!-- touch hint -->
+            <text x="270" y="122" font-family="system-ui" font-size="7" fill="#96a0b3" text-anchor="middle">Touch to select · 32" display · Accessibility compliant</text>
+          </svg>
+          <div class="preview-label">Replace with: 32" kiosk UI · event selection screen</div>
+        </div>
+        <div class="w-content">
+          <div class="wcard-title">Cosm Kiosk Experience</div>
+          <div class="wcard-one">Physical touchscreen interface for high-traffic immersive venue operations — designed where the screen competes with an 87-foot dome for attention.</div>
+          <div class="wcard-trio">
+            <div class="tcol"><div class="tcol-lbl">My role</div><div class="tcol-val"><strong>Lead designer</strong> — hardware UX and design system integration</div></div>
+            <div class="tcol"><div class="tcol-lbl">Complexity</div><div class="tcol-val">Glare · queue throughput · touch distance · multi-surface system</div></div>
+            <div class="tcol"><div class="tcol-lbl">Outcome</div><div class="tcol-val"><strong>Reduces staff dependency</strong> at peak moments · deployed at venues</div></div>
+          </div>
+          <a href="#" class="wcta">Read case study →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 GUEST SERVICES -->
+    <div class="wcard">
+      <div class="wmeta">
+        <div>
+          <div class="wcard-idx">04 / 04</div>
+          <div class="wcard-client">Cosm Internal</div>
+          <div class="wcard-yr">2022 – 2024</div>
+        </div>
+        <div class="wcard-tags">
+          <span class="wtag hi">Enterprise UX</span>
+          <span class="wtag">Internal tools</span>
+          <span class="wtag">Real-time</span>
+        </div>
+      </div>
+      <div class="wbody">
+        <div class="w-preview">
+          <svg width="100%" height="100%" viewBox="0 0 540 130" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="540" height="130" fill="#f5f3ef"/>
+            <!-- sidebar -->
+            <rect x="8" y="8" width="100" height="114" rx="6" fill="white" stroke="#e2dfd9" stroke-width="1"/>
+            <text x="58" y="26" font-family="system-ui" font-size="7" font-weight="700" fill="#96a0b3" text-anchor="middle">GUEST OPS</text>
+            <rect x="16" y="32" width="84" height="18" rx="3" fill="#1d4ed8" opacity="0.1"/>
+            <text x="58" y="45" font-family="system-ui" font-size="7" font-weight="700" fill="#1d4ed8" text-anchor="middle">Guest Lookup</text>
+            <text x="58" y="62" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">Refunds</text>
+            <text x="58" y="78" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">Ticket History</text>
+            <text x="58" y="94" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">Event Status</text>
+            <text x="58" y="110" font-family="system-ui" font-size="7" fill="#525a6e" text-anchor="middle">Reports</text>
+            <!-- main panel -->
+            <rect x="120" y="8" width="412" height="28" rx="6" fill="white" stroke="#e2dfd9" stroke-width="1"/>
+            <rect x="120" y="28" width="412" height="8" fill="white"/>
+            <text x="136" y="26" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b">Guest Lookup</text>
+            <rect x="380" y="12" width="140" height="18" rx="3" fill="#f0ede9" stroke="#e2dfd9" stroke-width="0.8"/>
+            <text x="450" y="25" font-family="system-ui" font-size="7" fill="#96a0b3" text-anchor="middle">🔍  Search by name or booking ID</text>
+            <!-- guest record -->
+            <rect x="120" y="44" width="412" height="78" rx="6" fill="white" stroke="#e2dfd9" stroke-width="1"/>
+            <text x="136" y="62" font-family="system-ui" font-size="8" font-weight="700" fill="#14161b">Sarah K. — Booking #10842</text>
+            <rect x="450" y="52" width="68" height="16" rx="3" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="0.8"/>
+            <text x="484" y="63" font-family="system-ui" font-size="6" font-weight="700" fill="#16a34a" text-anchor="middle">● CHECKED IN</text>
+            <line x1="128" y1="74" x2="524" y2="74" stroke="#e2dfd9" stroke-width="0.8"/>
+            <text x="136" y="87" font-family="system-ui" font-size="7" fill="#96a0b3">Section</text>
+            <text x="136" y="98" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b">Zone A · Row 3 · Seat 12</text>
+            <text x="260" y="87" font-family="system-ui" font-size="7" fill="#96a0b3">Ticket type</text>
+            <text x="260" y="98" font-family="system-ui" font-size="8" font-weight="600" fill="#14161b">Premium Experience</text>
+            <text x="390" y="87" font-family="system-ui" font-size="7" fill="#96a0b3">Actions</text>
+            <rect x="390" y="88" width="56" height="16" rx="3" fill="#fff7ed" stroke="#f0c070" stroke-width="0.8"/>
+            <text x="418" y="99" font-family="system-ui" font-size="6" font-weight="700" fill="#b06010" text-anchor="middle">Issue Refund</text>
+            <rect x="452" y="88" width="60" height="16" rx="3" fill="#f0ede9" stroke="#e2dfd9" stroke-width="0.8"/>
+            <text x="482" y="99" font-family="system-ui" font-size="6" fill="#525a6e" text-anchor="middle">View History</text>
+          </svg>
+          <div class="preview-label">Replace with: enterprise guest services dashboard</div>
+        </div>
+        <div class="w-content">
+          <div class="wcard-title">Guest Services Platform</div>
+          <div class="wcard-one">Enterprise dashboard for venue staff managing live events in real time — designed for multi-role workflows under live event pressure.</div>
+          <div class="wcard-trio">
+            <div class="tcol"><div class="tcol-lbl">My role</div><div class="tcol-val"><strong>Lead designer</strong> — role-aware IA, real-time patterns, design system</div></div>
+            <div class="tcol"><div class="tcol-lbl">Complexity</div><div class="tcol-val">Three roles · divergent needs · <strong>live event pressure</strong></div></div>
+            <div class="tcol"><div class="tcol-lbl">Outcome</div><div class="tcol-val"><strong>Operational at Cosm venues</strong> · DS patterns adopted across product</div></div>
+          </div>
+          <a href="guest-services-v2.html" class="wcta">Read case study →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW I WORK -->
+<section class="sec" id="approach">
+  <div class="sec-top"><span class="sec-lbl">How I work</span></div>
+  <div class="how-grid">
+    <div class="how-cell">
+      <div class="how-pill">01 — Systems thinking</div>
+      <div class="how-h">I map the system before I design the screen</div>
+      <p class="how-b">I start with operational context — user roles, pressure points, decision moments, and dependencies. The interface is always the last thing I design, not the first.</p>
+    </div>
+    <div class="how-cell">
+      <div class="how-pill">02 — Operational UX</div>
+      <div class="how-h">I design for real conditions, not ideal flows</div>
+      <p class="how-b">Real users work under speed, pressure, distractions, and edge cases. I test for the moments that break a flow and design backward from there — not from a perfect scenario.</p>
+    </div>
+    <div class="how-cell">
+      <div class="how-pill">03 — Design leadership</div>
+      <div class="how-h">I reduce uncertainty for the whole team</div>
+      <p class="how-b">I document decisions, surface trade-offs, and align product, engineering, QA, and stakeholders through clear rationale — not just screens. The team should always know what we're building and why.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST — dark band -->
+<div class="trust-wrap">
+  <div class="trust-inner">
+    <div>
+      <div class="t-eyebrow">From the team</div>
+      <p class="t-quote">Aashima consistently delivered design work at a level of quality and strategic clarity that made the entire product better. She leads with conviction in ambiguous territory — exactly what you want on hard problems.</p>
+      <p class="t-attr">Jérémie Lasnier · VP of Design, Cosm</p>
+    </div>
+    <div>
+      <div class="trust-lbl">What teams trust me with</div>
+      <div class="trust-list">
+        <div class="trow"><span class="tdash">—</span><span class="ttext"><strong>Ambiguous 0→1 areas</strong> with no design precedent</span></div>
+        <div class="trow"><span class="tdash">—</span><span class="ttext"><strong>High-pressure launches</strong> that cannot move — including the Olympics</span></div>
+        <div class="trow"><span class="tdash">—</span><span class="ttext"><strong>Enterprise workflows</strong> for complex operational environments</span></div>
+        <div class="trow"><span class="tdash">—</span><span class="ttext"><strong>Multi-surface design systems</strong> — web, kiosk, VR, enterprise</span></div>
+        <div class="trow"><span class="tdash">—</span><span class="ttext"><strong>Cross-functional alignment</strong> across NBC, Meta, Cosm, and internal teams</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="sec-top">
+    <span class="sec-lbl">About</span>
+    <a href="#" class="sec-a">Digital Garden →</a>
+  </div>
+  <div class="about-grid">
+    <div>
+      <p class="about-pull">I design in places where no playbook exists.</p>
+      <p class="about-p">My career has been defined by products that didn't exist before — immersive VR experiences, dome-venue ticketing, live event operations, and tools built from reference points I had to create myself.</p>
+      <p class="about-p">I'm drawn to senior product roles where design has to carry real weight — where the team needs someone who can hold the vision, navigate ambiguity, and ship work that holds up under pressure.</p>
+      <p class="about-p">Outside of product design I write about design thinking, immersive media, and building in uncertainty — in my <a href="#" class="about-a">Digital Garden</a>.</p>
+    </div>
+    <div>
+      <div class="tl">
+        <div class="tl-row"><span class="tl-yr">2020 →</span><div><div class="tl-role">Lead Product Designer</div><div class="tl-co">Cosm · Gurgaon, India</div><div class="tl-note">NBC, Meta, Sky Sports, internal platforms</div></div></div>
+        <div class="tl-row"><span class="tl-yr">2019–2020</span><div><div class="tl-role">Senior UX Designer</div><div class="tl-co">Independent / Contract</div><div class="tl-note">Broadcast, media, and brand digital</div></div></div>
+        <div class="tl-row"><span class="tl-yr">2017–2019</span><div><div class="tl-role">UI / UX Designer</div><div class="tl-co">E-Media Web Solutions · Delhi</div><div class="tl-note">Broadcast, tourism, and media platforms</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THINKING -->
+<section class="sec" id="thinking">
+  <div class="sec-top">
+    <span class="sec-lbl">Thinking</span>
+    <a href="#" class="sec-a">All essays →</a>
+  </div>
+  <div class="thinking-grid">
+    <div class="thinking-cell"><div class="thinking-type">Essay</div><div class="thinking-ttl">On designing for mediums that don't yet have rules</div><a href="#" class="thinking-cta">Read →</a></div>
+    <div class="thinking-cell"><div class="thinking-type">Reflection</div><div class="thinking-ttl">What the Olympics taught me about shipping under pressure</div><a href="#" class="thinking-cta">Read →</a></div>
+    <div class="thinking-cell"><div class="thinking-type">Process</div><div class="thinking-ttl">How I lead design in spaces with no existing UX pattern</div><a href="#" class="thinking-cta">Read →</a></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-wrap">
+  <div class="cta-over">Contact</div>
+  <p class="cta-h">Open to Lead and Senior<br>Product Design roles.</p>
+  <p class="cta-sub">If you're building something with real complexity and need a designer who can lead — reach out directly. No forms.</p>
+  <div class="cta-row">
+    <a href="mailto:aashima.vinayak@cosm.com" class="btn-primary">hello@aashimavinayak.com</a>
+    <a href="https://www.linkedin.com/in/aashimavinayak" target="_blank" rel="noopener" class="btn-secondary">LinkedIn ↗</a>
+    <a href="#" class="btn-secondary">Resume ↓</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="ft">© 2025 Aashima Vinayak</span>
+  <span class="ft">Lead Product Designer · Cosm</span>
+</footer>
+
+</body>
+</html>
